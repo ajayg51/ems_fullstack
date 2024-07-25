@@ -1,0 +1,12 @@
+#added-beneficiary-listing-div{
+    width: 40vw;
+    height: 65vh;
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#no-data-img{
+
+}

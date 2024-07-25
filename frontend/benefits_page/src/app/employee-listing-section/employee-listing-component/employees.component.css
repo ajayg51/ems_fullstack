@@ -1,0 +1,28 @@
+
+ul{
+    list-style: none;
+}
+
+#employee-listing-div{
+    width: 60vw;
+    height: 65vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: beige;
+}
+
+#employee-listing{
+    width: 90%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    white-space: nowrap;
+    scrollbar-width: none;
+    background-color: red;
+}
+
+
+
+

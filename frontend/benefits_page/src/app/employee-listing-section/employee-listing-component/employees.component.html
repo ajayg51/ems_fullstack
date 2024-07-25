@@ -1,0 +1,14 @@
+<div id="employee-listing-div">
+    <!-- <app-search-box/> -->
+    <p>All employee listing</p>
+    <ul id="employee-listing">
+       <li *ngFor="let item of  data">
+        <app-employee-card
+        id={{item.employee_id}}
+        name = {{item.first_name}}
+        gender = {{item.gender}}
+        />
+       </li>
+
+    </ul>
+</div>

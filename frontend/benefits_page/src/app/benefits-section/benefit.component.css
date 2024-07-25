@@ -1,0 +1,30 @@
+#beneficiary-listing-div{
+    height: 25vh;
+    background-color: transparent;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    /* animation: marquee 10s linear infinite; */
+}
+
+/* @keyframes marquee {
+    0%{
+        transform: translate(0);
+    }
+    50%{
+        transform: translate(-50%);
+    }
+    50%{
+        transform: translate(50%);
+    }
+    
+} */
+
+
+ul{
+    padding: 0;
+    margin: 0;
+    display: flex; 
+    justify-content: center;
+    list-style: none;
+}
+

@@ -1,0 +1,15 @@
+#page-header{
+    height: 10vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    background-color: purple;
+}
+
+
+#employee-beneficiary-div{
+    display: flex;
+}

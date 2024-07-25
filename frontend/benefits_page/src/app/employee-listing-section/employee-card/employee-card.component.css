@@ -1,0 +1,19 @@
+#employee-card{
+    width: 200px; 
+    height: 200px;
+    display: grid;
+    place-items: center;
+    margin-right: 10px;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: beige;
+}
+
+#employee-img-caption{
+    
+    text-align: center;
+    /* background-color: yellowgreen; */
+    width: 100%;
+    height: 90%;
+}
+

@@ -1,0 +1,18 @@
+<div id="beneficiary-listing-div">
+   <p id="all-benefit-info">All benefit listing</p>
+   <div id="beneficiary-listing-child-div">
+      <ul>
+         <li *ngFor="let item of data">
+           <app-benefit-card 
+
+           id={{item.benefit_id}}
+           title = {{item.benefit_name}} 
+           description={{item.description}}
+            
+           />
+
+         </li>
+     </ul>
+   </div>
+    
+</div>
