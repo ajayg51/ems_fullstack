@@ -3,21 +3,16 @@
     background-color: transparent;
     overflow-x: scroll;
     scrollbar-width: none;
-    /* animation: marquee 10s linear infinite; */
 }
 
-/* @keyframes marquee {
-    0%{
-        transform: translate(0);
-    }
-    50%{
-        transform: translate(-50%);
-    }
-    50%{
-        transform: translate(50%);
-    }
-    
-} */
+#benefits-div{
+    width: 100vw;
+    height: 5vh;
+    display: grid;
+    align-items: center;
+    background-color: brown;
+    justify-content: center;
+}
 
 
 ul{

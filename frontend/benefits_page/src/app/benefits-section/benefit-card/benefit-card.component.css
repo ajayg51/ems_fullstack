@@ -1,9 +1,11 @@
-#beneficiary-card{
+#benefit-card-div{
     width: 15vw;
     height: 28vh;
-    margin-right: 20px;
-    background-color: transparent;
     cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 20px;
+    background-color: pink;
 }
 
 
