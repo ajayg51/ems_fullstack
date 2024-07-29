@@ -1,4 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { Employee } from 'src/app/models/employee-model';
+import { AppAssets } from 'src/utils/app_assets';
+import { EmployeesService } from '../employee-listing-component/employees.service';
 
 @Component({
   selector: 'app-employee-card',
@@ -8,12 +11,26 @@ import { Component, Input } from '@angular/core';
 
 
 export class EmployeeCardComponent {
-  @Input() id : string = "";
-  @Input() name : string = "";
-  @Input() gender : string = "";
+  assetPath : string = AppAssets.personLogo;
+  empId : number = 0;
+
+  @Input() empData! : Employee;
+  
+  @Input() onEmpCardTapCallback! : (
+    employeesService : EmployeesService,
+    empId : number) => void;
+  
+  constructor(private employeesService : EmployeesService){}
 
 
-  onEmpCardTap(empId : string): void{
-    console.log("empId : ", empId);
+  ngOnInit(){
+    this.empId = this.empData.employee_id;
+  }
+
+  onEmpCardTap(): void{
+    console.log("onEmpCardTap : ", this.empData.employee_id);
+    this.onEmpCardTapCallback(
+      this.employeesService,
+      this.empData.employee_id);
   }
 }

@@ -18,7 +18,9 @@ export class SearchBoxComponent {
   }
 
   onInputTextChange(query : string) : void{
+    query = query.trim();
+
     console.log("query :  ", query);
-    this.onEmpSearch(query.trim());
+    this.onEmpSearch(query);
   }
 }

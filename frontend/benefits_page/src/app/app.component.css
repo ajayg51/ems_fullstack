@@ -6,10 +6,10 @@
     align-items: center;
     font-size: 1.5rem;
     font-weight: 800;
-    background-color: purple;
+    /* background-color: purple; */
 }
 
 
-#employee-added-benefits-div{
+#benefits-emp-details-div{
     display: flex;
 }

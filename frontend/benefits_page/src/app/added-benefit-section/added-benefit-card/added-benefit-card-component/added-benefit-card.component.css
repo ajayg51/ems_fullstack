@@ -1,0 +1,33 @@
+#added-benefit-div{
+    width: 39vw;
+}
+
+
+#added-benefit-div-header{
+    width: 100%;
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    background-color: brown;
+}
+
+#added-benefit-details-div{
+    width: auto;
+    height: auto;
+    margin: 5px 0px;
+    padding: 5px 5px;
+    border-radius: 12px;
+    border: 2px black solid;
+    /* background-color: yellow; */
+}
+
+#no-data-img-div{
+    padding: 5px;
+    height: 79vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    object-fit: cover;
+}

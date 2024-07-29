@@ -12,8 +12,6 @@ import { Benefit } from '../models/benefits-model';
 
 export class BenefitComponent {
 
-  // beneficiaryCardList: BeneficiaryCard[] = [];
-
   data : Benefit[] = [] ;
 
   
@@ -35,7 +33,6 @@ export class BenefitComponent {
           
           this.data = data;
 
-          // this.getBeneficiaryCardList(data);
         },
         error =>{
           console.log("Error :: ", error)
@@ -44,35 +41,5 @@ export class BenefitComponent {
   }
 
 
-  // getBeneficiaryCardList(data : Benefit[]) : void {
-  //   for(let item of data){
-  //     console.log('beneficiary item : ',item.beneficiary_id, ' ', item.beneficiary_name);
-  //     const card = new BeneficiaryCard(
-  //       item.benefit_name,
-  //       item.description
-  //     );
-
-  //     this.beneficiaryCardList.push(card);
-
-  //   }
-  // }
 
 }
-
-// class BeneficiaryCard{
-//   // assetPath : string;
-//   title : string;
-//   description : string;
-
-
-//   constructor(
-//     // assetPath : string, 
-//     title : string,
-//     description : string
-//    ){
-//     // this.assetPath = assetPath;
-//     this.title = title;
-//     this.description = description;
-//   }
-
-// }

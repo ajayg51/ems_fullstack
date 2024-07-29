@@ -6,14 +6,21 @@
     margin-right: 10px;
     border-radius: 12px;
     cursor: pointer;
-    background-color: beige;
+    background-color: pink;
 }
 
 #employee-img-caption{
-    
+    width: 100px;
     text-align: center;
-    /* background-color: yellowgreen; */
-    width: 100%;
-    height: 90%;
 }
 
+#emp-logo{
+    width: 100px;
+    height: 100px;
+}
+
+
+#emp-logo-caption-div{
+    text-align: center;
+    /* background-color: red; */
+}

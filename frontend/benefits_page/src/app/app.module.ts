@@ -13,7 +13,6 @@ import { AddedBenefitCardComponent } from './added-benefit-section/added-benefit
 import { BenefitComponent } from './benefits-section/benefit.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { EmployeeBenefitComponent } from './added-benefit-section/employe-benefit-component/employee-benefit.component';
 import { BenefitCardComponent } from './benefits-section/benefit-card/benefit-card.component';
 
 @NgModule({
@@ -26,7 +25,6 @@ import { BenefitCardComponent } from './benefits-section/benefit-card/benefit-ca
     AppLoaderComponent,
     AddedBenefitCardComponent,
     EmployeeCardComponent,
-    EmployeeBenefitComponent,
     BenefitCardComponent,
   ],
   imports: [

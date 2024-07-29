@@ -1,6 +1,13 @@
-<div id="employee-card" (click)="onEmpCardTap(id)">
-    <p>Id :: {{id}}</p>
-    <p>{{name}}</p>
-    <p>Gender :: {{gender}}</p>
+<div id="employee-card" (click)="onEmpCardTap()">
 
+    <div id="emp-logo-caption-div">
+        <figure>
+            <img id="emp-logo" src={{assetPath}} alt="no-person-img" />
+            <figcaption id="emp-logo-caption">
+                {{empData.first_name}}
+            </figcaption>
+        </figure>
+    </div>
+    
+    
 </div>

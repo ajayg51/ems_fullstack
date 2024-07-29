@@ -4,7 +4,8 @@
     cursor: pointer;
     display: flex;
     flex-wrap: wrap;
-    margin-right: 20px;
+    margin: 10px;
+    border-radius: 12px;
     background-color: pink;
 }
 
@@ -15,11 +16,28 @@
     height: 80%;
     margin: 10px;
     opacity: 0.5;
-    background-color: greenyellow;    
+    background-color: transparent;    
 }
 
-#card-image{
+/* #card-image{
     width: 200px;
     height: 100px;
     object-fit: cover;
+} */
+
+#benefit-card-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px black solid;
+}
+
+
+#benefit-card-desc{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-lines: 3;
+    text-overflow: ellipsis;
 }

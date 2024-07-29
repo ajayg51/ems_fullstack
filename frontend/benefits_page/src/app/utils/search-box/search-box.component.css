@@ -1,13 +1,13 @@
 #search-box{
+    margin-top: 5px;
     width: 20rem;
-    height: 10vh;
-    margin-top: 10%;
+    height: 5vh;
     border-radius: 12px;
     outline: none;
     display: flex;
     align-items: center;
     justify-content: end;
-    border: 1px solid grey;
+    border: 1px solid black;
     background-color: transparent;
 }
 

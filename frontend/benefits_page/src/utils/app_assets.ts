@@ -8,6 +8,6 @@ export class AppAssets{
     static healthInsuranceLogo = `${this.logoRootPath}/health_insurance.svg`;
     static lifeInsuranceLogo = `${this.logoRootPath}/life_insurance.svg`;
     static personLogo = `${this.logoRootPath}/person.svg`;
-
+    static noData = `${this.logoRootPath}/no_data.svg`;
 
 }

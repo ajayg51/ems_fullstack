@@ -1,12 +1,5 @@
-#beneficiary-listing-div{
-    height: 25vh;
-    background-color: transparent;
-    overflow-x: scroll;
-    scrollbar-width: none;
-}
-
-#benefits-div{
-    width: 100vw;
+#benefits-div-header{
+    width: 60vw;
     height: 5vh;
     display: grid;
     align-items: center;
@@ -19,7 +12,25 @@ ul{
     padding: 0;
     margin: 0;
     display: flex; 
-    justify-content: center;
     list-style: none;
 }
 
+#benefits-div{
+    height: auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    /* background-color: purple; */
+}
+
+#benefits-listing-div{
+    width: 59vw;
+    margin: 5px 5px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    scrollbar-width: none;
+    border: 2px black solid;
+    border-radius: 12px;
+    
+    /* background-color: red; */
+}

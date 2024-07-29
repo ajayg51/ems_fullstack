@@ -14,5 +14,5 @@ export class BenefitCardComponent {
   @Input() title : String = "";
   @Input() description: String = "";
 
-  // @Input() benefitData : Benefit = Convert.toBenefit("");
+  @Input() benefitData! : Benefit;
 }
