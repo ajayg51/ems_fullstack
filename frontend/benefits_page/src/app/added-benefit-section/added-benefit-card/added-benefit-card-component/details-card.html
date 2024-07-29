@@ -1,14 +1,38 @@
-<div id="added-benefit-div">
-    <div id="added-benefit-div-header">
+<div id="details-div">
+    <div id="details-div-header">
         Details section
     </div>
-    <div id="added-benefit-details-div">
-        <div id="no-data-img-div">
-            <figure id="no-data-fig">
-                <img height="150px" src={{assetPath}} alt="no_data_img"/>
-                <figcaption>No data found!</figcaption>
-            </figure>
-        
+    <div id="details-content-div">
+        <div *ngIf="isBenefitCardTapped$ | async else empContent">
+            <div *ngIf="benefitData$ | async as benefitData">
+                <app-benefit-content [data]="benefitData[0]"/>
+            </div>
         </div>
+
+        
     </div>
 </div>
+
+
+
+
+<ng-template #empContent>
+    <div *ngIf="isLoading$ | async else checkEmpNoData">
+        <app-app-loader/>
+    </div>
+</ng-template>
+
+<ng-template #checkEmpNoData>
+    <div *ngIf="isNoData$ | async else empDataFound">
+        No employee data found
+    </div>
+</ng-template>
+
+
+<ng-template #empDataFound>
+    <div *ngIf="empData$ | async as empData">
+        <div *ngIf="!isInitStage">
+            <app-emp-content [data] = "empData[0]"/>
+        </div>
+    </div>
+</ng-template>

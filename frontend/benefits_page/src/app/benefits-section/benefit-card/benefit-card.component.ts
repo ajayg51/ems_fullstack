@@ -19,7 +19,7 @@ export class BenefitCardComponent {
 
   onBenefitCardTap() : void{
     this.detailsCardService
-      .storeBenefitData(this.benefitData);
+      .showBenefitData(this.benefitData);
   }
 
   onEmpCardTap(): void{

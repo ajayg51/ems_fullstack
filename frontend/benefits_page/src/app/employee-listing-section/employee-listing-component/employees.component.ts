@@ -24,15 +24,6 @@ export class EmployeesComponent {
   constructor(employeesService : EmployeesService){
     this.employeesService = employeesService;
   }
-
-  isEmplistEmpty() : boolean {
-
-    // return EmployeesComponent
-    //   .filteredEmployees
-    //   .value.length == 1;
-    return true;
-  }
-
   
   ngOnInit() : void{
 

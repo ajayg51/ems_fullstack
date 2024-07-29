@@ -14,6 +14,8 @@ import { BenefitComponent } from './benefits-section/benefit.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BenefitCardComponent } from './benefits-section/benefit-card/benefit-card.component';
+import { BenefitContentComponent } from './added-benefit-section/added-benefit-card/added-benefit-card-component/benefit-content/benefit-content.component';
+import { EmpContentComponent } from './added-benefit-section/added-benefit-card/added-benefit-card-component/emp-content/emp-content.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { BenefitCardComponent } from './benefits-section/benefit-card/benefit-ca
     DetailsCardComponent,
     EmployeeCardComponent,
     BenefitCardComponent,
+    BenefitContentComponent,
+    EmpContentComponent,
   ],
   imports: [
     BrowserModule,

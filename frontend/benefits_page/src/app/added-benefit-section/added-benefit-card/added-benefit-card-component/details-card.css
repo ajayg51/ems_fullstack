@@ -1,9 +1,9 @@
-#added-benefit-div{
+#details-div{
     width: 39vw;
 }
 
 
-#added-benefit-div-header{
+#details-div-header{
     width: 100%;
     display: flex;
     padding: 5px;
@@ -14,7 +14,7 @@
 
 }
 
-#added-benefit-details-div{
+#details-content-div{
     width: auto;
     height: auto;
     margin: 5px 0px;

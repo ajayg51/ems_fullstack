@@ -1,36 +1,51 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, Input } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Benefit } from 'src/app/models/benefits-model';
+import { DetailsCardComponent } from './details-card.component';
+import { Employee } from 'src/app/models/employee-model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DetailsCardService {
-  benefitData! : Benefit; 
+ 
+  
+
+  // isLoading = true;
+  // isNoData = false;
   
   private baseUrl = "http://localhost:8000";
 
-  
   private empBenefitApiUrl = `${this.baseUrl}/benefits/employee/`;
   
   constructor(private http: HttpClient) { }
   
-  storeBenefitData(data : Benefit) : void{
-    this.benefitData = data;
-    console.log("shared benefit data", this.benefitData);
+  showBenefitData(data : Benefit) : void{
+    DetailsCardComponent.isBenefitCardTapped.next(true);
+    DetailsCardComponent.benefitData.next([data]);
   }
 
 
 
 
   onEmpCardTap(empId : number) : void{
+    DetailsCardComponent.isLoading.next(true);
+
     this.fetchEmpData(empId)
       .subscribe(
         data => {
+          DetailsCardComponent.isLoading.next(false);
+          
+          DetailsCardComponent.empData.next([data]);
+
           console.log("emp-benefit-data :: ", data);
         },
         error => {
+          
+          DetailsCardComponent.isLoading.next(false);
+          
+          DetailsCardComponent.isNoData.next(true);
           console.log("onEmpCardTap() : error :: ", error);
         }
       );
@@ -38,7 +53,7 @@ export class DetailsCardService {
 
   
   
-  fetchEmpData(empId : number) :  Observable<void>{
+  fetchEmpData(empId : number) :  Observable<Employee>{
     console.log("Employee card tapped!", empId);
 
     let params = new HttpParams();
@@ -46,7 +61,7 @@ export class DetailsCardService {
     params = params.set("empId", empId);
 
     
-    return this.http.get<void>(
+    return this.http.get<Employee>(
       this.empBenefitApiUrl,
       {params}
 

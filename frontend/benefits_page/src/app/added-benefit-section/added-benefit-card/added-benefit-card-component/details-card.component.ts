@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { AppAssets } from 'src/utils/app_assets';
+import { DetailsCardService } from './details-card.service';
+import { BehaviorSubject } from 'rxjs';
+import { Benefit } from 'src/app/models/benefits-model';
+import { Employee } from 'src/app/models/employee-model';
 
 @Component({
   selector: 'app-details-card-component',
@@ -11,11 +15,40 @@ import { AppAssets } from 'src/utils/app_assets';
 export class DetailsCardComponent {
   assetPath : string = AppAssets.noData;
 
-  showBenefitCardDetails():void{
-    console.log("benefit card tapped!!");
-  }
+  static isBenefitCardTapped = 
+    new BehaviorSubject<boolean>(false);
 
-  showEmpCardDetails(): void{
-    console.log("Employee card tapped!!");
-  }
+  isBenefitCardTapped$ = 
+    DetailsCardComponent.isBenefitCardTapped.asObservable();
+  
+  static benefitData = 
+    new BehaviorSubject<Benefit[]>([]);
+
+  benefitData$ = 
+    DetailsCardComponent.benefitData.asObservable();
+
+  
+    
+  static isLoading = 
+    new BehaviorSubject<boolean>(false);
+  
+  isLoading$ = 
+    DetailsCardComponent.isLoading.asObservable();
+
+  
+  static isNoData = 
+    new BehaviorSubject<boolean>(false);
+  
+  isNoData$ = 
+    DetailsCardComponent.isNoData.asObservable();
+    
+  static empData = 
+  new BehaviorSubject<Employee[]>([]);
+
+  empData$ = 
+  DetailsCardComponent.empData.asObservable();
+
+  isInitStage : boolean = true;
+
+
 }
