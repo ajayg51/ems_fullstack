@@ -1,20 +1,43 @@
-<div id="employee-listing-div">
+<div id="employee-listing-parent-div">
     
-     <div 
-      id="employees-header-div" 
-      >
-      <!-- line 5 :: (click)="onEmpCardTap" -->
+   <div id="employees-header-div">
         All employee listing
-     </div>
-     <app-search-box [onEmpSearch]="onEmpSearch"/>
-     <ul id="employee-listing">
-      <li *ngFor="let item of  filteredEmployees$ | async">
-         <app-employee-card
-         [empData]="item"
-         />
-         <!-- on line 13 [onEmpCardTapCallback]="onEmpCardTap" -->
-         </li>
+   </div>
+   
+   <div id="search-box-div">
+      <app-search-box 
+      [onEmpSearch]="onEmpSearch"/>
+   </div>
+     
+      <div id="employee-listing-div">
+         <div
+         
+         id="emp-list-empty-img" 
+         *ngIf="(filteredEmployees$ | async)?.length === 0">
+            <figure>
+               <img 
+               src={{noDataImg}} 
+               alt="no-data img"
+               />
+               <figcaption>
+                  Empty search result
+               </figcaption>
+            </figure>
+            
+         </div>
 
-      </ul>
+         <div *ngIf="(filteredEmployees$ | async)?.length !== 0">
+            <ul id="employee-listing">
+               <li *ngFor="let item of  filteredEmployees$ | async">
+                  <app-employee-card
+                  [empData]="item"/>
+               </li>
+            </ul>
+         </div>
+    
+   </div>
+     
+     
+     
 </div>
 

@@ -5,33 +5,16 @@ ul{
     margin: 0;
 }
 
-#employee-listing-div{
+#employee-listing-parent-div{
     width: 60vw;
     height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     /* background-color: purple; */
 }
 
-#employee-listing{
-    width: auto;
-    height: auto;
-    overflow-x: scroll;
-    white-space: nowrap;
-    scrollbar-width: none;
-    display: flex;
-    align-items: center;
-    
-    margin: 5px 5px;
-    border-radius: 12px;
-    padding: 10px;
-    border: 1px black solid;
-    background-color: transparent;
-}
+
 
 #employees-header-div{
-    width: 100vw;
+    width: auto;
     display: flex;
     padding: 5px;
     align-items: center;
@@ -39,4 +22,33 @@ ul{
     background: linear-gradient(to right, yellow, grey);
 }
 
+#search-box-div{
+    display: flex;
+    justify-content: center;
+}
 
+
+#employee-listing{
+    width: auto;
+    height: auto;
+    overflow-x: scroll;
+    white-space: nowrap;
+    scrollbar-width: none;
+    display: flex; 
+    background-color: transparent;
+}
+
+#employee-listing-div{
+
+    margin: 5px 5px;
+    border-radius: 12px;
+    padding: 10px 10px;
+    border: 1px black solid;
+}
+
+
+#emp-list-empty-img{
+    display: flex;
+    justify-content: center;
+
+}

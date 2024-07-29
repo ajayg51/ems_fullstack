@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Employee } from '../../models/employee-model';
 import { EmployeesService } from './employees.service';
+import { AppAssets } from 'src/utils/app_assets';
 
 
 @Component({
@@ -11,6 +12,8 @@ import { EmployeesService } from './employees.service';
 })
 
 export class EmployeesComponent {
+  noDataImg : string = AppAssets.noData;
+
   static data : Employee [] = [];
 
   static  filteredEmployees = new BehaviorSubject<Employee[]> ([]);
@@ -20,6 +23,14 @@ export class EmployeesComponent {
 
   constructor(employeesService : EmployeesService){
     this.employeesService = employeesService;
+  }
+
+  isEmplistEmpty() : boolean {
+
+    // return EmployeesComponent
+    //   .filteredEmployees
+    //   .value.length == 1;
+    return true;
   }
 
   
