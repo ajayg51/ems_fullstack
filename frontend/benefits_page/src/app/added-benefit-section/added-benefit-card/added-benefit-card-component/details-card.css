@@ -9,7 +9,9 @@
     padding: 5px;
     justify-content: center;
     align-items: center;
-    background-color: brown;
+    /* background-color: brown; */
+    background: linear-gradient(to right, grey, yellow);
+
 }
 
 #added-benefit-details-div{
@@ -18,7 +20,7 @@
     margin: 5px 0px;
     padding: 5px 5px;
     border-radius: 12px;
-    border: 2px black solid;
+    border: 1px black solid;
     /* background-color: yellow; */
 }
 

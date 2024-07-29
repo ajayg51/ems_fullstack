@@ -23,7 +23,7 @@ input#search-text{
 }
 
 input[type="text"]::placeholder{
-    color: grey;
+    color: black;
 
 }
 

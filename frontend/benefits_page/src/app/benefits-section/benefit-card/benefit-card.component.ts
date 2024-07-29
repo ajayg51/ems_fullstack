@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { AppAssets } from 'src/utils/app_assets';
-import { BenefitsDataService } from '../benefits.service';
-import { Benefit, Convert } from 'src/app/models/benefits-model';
+import { DetailsCardService } from 'src/app/added-benefit-section/added-benefit-card/added-benefit-card-component/details-card.service';
+import { Benefit } from 'src/app/models/benefits-model';
 
 @Component({
   selector: 'app-benefit-card',
@@ -15,4 +14,17 @@ export class BenefitCardComponent {
   @Input() description: String = "";
 
   @Input() benefitData! : Benefit;
+
+  constructor(private detailsCardService : DetailsCardService){}
+
+  onBenefitCardTap() : void{
+    this.detailsCardService
+      .storeBenefitData(this.benefitData);
+  }
+
+  onEmpCardTap(): void{
+
+  }
+
+  
 }

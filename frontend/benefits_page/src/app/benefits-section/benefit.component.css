@@ -3,7 +3,8 @@
     height: 5vh;
     display: grid;
     align-items: center;
-    background-color: brown;
+    background: linear-gradient(to right, yellow, grey);
+
     justify-content: center;
 }
 
@@ -29,7 +30,7 @@ ul{
     overflow-y: hidden;
     overflow-x: scroll;
     scrollbar-width: none;
-    border: 2px black solid;
+    border: 1px black solid;
     border-radius: 12px;
     
     /* background-color: red; */

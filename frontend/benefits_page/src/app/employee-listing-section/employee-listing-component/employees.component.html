@@ -2,7 +2,8 @@
     
      <div 
       id="employees-header-div" 
-     (click)="onEmpCardTap">
+      >
+      <!-- line 5 :: (click)="onEmpCardTap" -->
         All employee listing
      </div>
      <app-search-box [onEmpSearch]="onEmpSearch"/>
@@ -10,8 +11,8 @@
       <li *ngFor="let item of  filteredEmployees$ | async">
          <app-employee-card
          [empData]="item"
-         [onEmpCardTapCallback]="onEmpCardTap"
          />
+         <!-- on line 13 [onEmpCardTapCallback]="onEmpCardTap" -->
          </li>
 
       </ul>

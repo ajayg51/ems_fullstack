@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { EmployeesService } from './employees.service';
-import { Employee } from '../../models/employee-model';
 import { BehaviorSubject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Employee } from '../../models/employee-model';
+import { EmployeesService } from './employees.service';
 
 
 @Component({
@@ -12,10 +11,10 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class EmployeesComponent {
-  data : Employee [] = [];
+  static data : Employee [] = [];
 
-  private filteredEmployees = new BehaviorSubject<Employee[]> ([]);
-  filteredEmployees$ = this.filteredEmployees.asObservable();
+  static  filteredEmployees = new BehaviorSubject<Employee[]> ([]);
+  filteredEmployees$ = EmployeesComponent.filteredEmployees.asObservable();
   
   private employeesService : EmployeesService;
 
@@ -29,11 +28,15 @@ export class EmployeesComponent {
     this.employeesService
       .getEmployeeList().subscribe(
         data => {
-          this.data = data;
-          console.log("emp list :: ", this.data);
-          this.filteredEmployees.next(data);
+          EmployeesComponent.data = data;
+
+          console.log("emp list :: ", data);
+          EmployeesComponent.filteredEmployees.next(data);
         
-          console.log("Observable list :: ",this.filteredEmployees.value[0]);
+          console.log(
+            "Observable list :: ",
+            EmployeesComponent.filteredEmployees.value[0]
+          );
 
         },
         error =>{
@@ -44,41 +47,35 @@ export class EmployeesComponent {
   }
 
 
-  onEmpSearch(empName : string) : void{
+  onEmpSearch(query : string) : void{
     let list : Employee [] = [];
 
-    console.log("searched emp :: ", empName, this.data);
+    let filteredEmployeeList = EmployeesComponent.data;
 
-    // for(let emp of this.data){
-    //   if(emp.first_name == empName){
-    //     list.push(emp);
-    //     console.log("found :: ",emp.first_name);
-    //   }
-    // }
+    console.log(
+      "onEmpSearch() : query :: ", 
+      query
+    );
 
-    // this.filteredEmployees.next(list);
+    console.log("data :: ", EmployeesComponent.data);
 
-  }
+    for(let emp of filteredEmployeeList){
+      let empFName = emp.first_name.toLowerCase();
+      query = query.toLowerCase();
 
+      if(empFName.includes(query)){
+        list.push(emp);
+        console.log("found :: ",emp);
+      }
+    }
 
-  onEmpCardTap(
-    employeesService : EmployeesService,
-    empId : number) : void{
+    console.log("matched list :: ", list);
 
-    console.log("employees Service method called!!", empId);
-
-    employeesService
-      .getEmpSpecificBenefits(empId)
-      .subscribe(
-        data => {
-          console.log("data ", data );
-        },
-        error => {
-          console.log("onEmpCardTap() : Error :: ", error);
-        }
-      );
+    EmployeesComponent.filteredEmployees.next(list);
 
   }
+
+
 
 
 }

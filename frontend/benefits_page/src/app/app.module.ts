@@ -9,7 +9,7 @@ import { EmployeeCardComponent } from './employee-listing-section/employee-card/
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { AppLoaderComponent } from "./utils/app-loader/app-loader.component";
-import { AddedBenefitCardComponent } from './added-benefit-section/added-benefit-card/added-benefit-card-component/added-benefit-card.component';
+import { DetailsCardComponent } from './added-benefit-section/added-benefit-card/added-benefit-card-component/details-card.component';
 import { BenefitComponent } from './benefits-section/benefit.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -23,7 +23,7 @@ import { BenefitCardComponent } from './benefits-section/benefit-card/benefit-ca
     SearchBoxComponent,
     EmployeeCardComponent,
     AppLoaderComponent,
-    AddedBenefitCardComponent,
+    DetailsCardComponent,
     EmployeeCardComponent,
     BenefitCardComponent,
   ],

@@ -29,7 +29,7 @@ export class BenefitComponent {
       .getBeneficiaryList().subscribe(
         data => {
 
-          console.log("Beneficiary list :: ", data);
+          console.log("Benefits list :: ", data);
           
           this.data = data;
 
@@ -38,6 +38,10 @@ export class BenefitComponent {
           console.log("Error :: ", error)
         }
       );
+  }
+
+  onBenefitCardTap() : void{
+    
   }
 
 

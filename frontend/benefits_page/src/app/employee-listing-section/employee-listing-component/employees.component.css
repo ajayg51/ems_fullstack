@@ -26,7 +26,7 @@ ul{
     margin: 5px 5px;
     border-radius: 12px;
     padding: 10px;
-    border: 2px black solid;
+    border: 1px black solid;
     background-color: transparent;
 }
 
@@ -36,7 +36,7 @@ ul{
     padding: 5px;
     align-items: center;
     justify-content: center;
-    background-color: brown;
+    background: linear-gradient(to right, yellow, grey);
 }
 
 
