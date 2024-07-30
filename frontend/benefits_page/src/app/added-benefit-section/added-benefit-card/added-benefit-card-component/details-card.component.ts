@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { AppAssets } from 'src/utils/app_assets';
 import { DetailsCardService } from './details-card.service';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Benefit } from 'src/app/models/benefits-model';
 import { Employee } from 'src/app/models/employee-model';
+import { EmpBenefitModel } from 'src/app/models/emp-benefit-model';
 
 @Component({
   selector: 'app-details-card-component',
@@ -13,42 +14,51 @@ import { Employee } from 'src/app/models/employee-model';
 
 
 export class DetailsCardComponent {
-  assetPath : string = AppAssets.noData;
+  noDataAssetPath : string = AppAssets.noData;
 
-  static isBenefitCardTapped = 
-    new BehaviorSubject<boolean>(false);
 
-  isBenefitCardTapped$ = 
-    DetailsCardComponent.isBenefitCardTapped.asObservable();
+  isInitStage$! : Observable<boolean>;
+
+  isNoData$! : Observable<boolean>;
+
+  isBenefitCardTapped$! : Observable<boolean>;
   
-  static benefitData = 
-    new BehaviorSubject<Benefit[]>([]);
-
-  benefitData$ = 
-    DetailsCardComponent.benefitData.asObservable();
+  benefitData$! : Observable<Benefit[]>;
 
   
-    
-  static isLoading = 
-    new BehaviorSubject<boolean>(false);
+  isLoading$! : Observable<boolean>;
+
+  empData$! : Observable<Employee[]>;
+
+  empBenefitData$! : Observable<EmpBenefitModel[]>;
+
+  constructor(private detailsCardService : DetailsCardService){
+      
+  }
+
+  ngOnInit():void{
+      this.isInitStage$ =
+        this.detailsCardService.isInitStage.asObservable();
+      
+      this.isNoData$ =
+        this.detailsCardService.isNoData.asObservable();
+      
+      this.isBenefitCardTapped$ =
+        this.detailsCardService.isBenefitCardTapped.asObservable();
+      
+      this.benefitData$ =
+        this.detailsCardService.benefitData.asObservable();
+
+      this.isLoading$ =
+        this.detailsCardService.isLoading.asObservable();
+      
+      this.empData$ =
+        this.detailsCardService.empData.asObservable();
+
+        
+      this.empBenefitData$ =
+        this.detailsCardService.empBenefitData.asObservable();
+  }
   
-  isLoading$ = 
-    DetailsCardComponent.isLoading.asObservable();
-
-  
-  static isNoData = 
-    new BehaviorSubject<boolean>(false);
-  
-  isNoData$ = 
-    DetailsCardComponent.isNoData.asObservable();
-    
-  static empData = 
-  new BehaviorSubject<Employee[]>([]);
-
-  empData$ = 
-  DetailsCardComponent.empData.asObservable();
-
-  isInitStage : boolean = true;
-
 
 }

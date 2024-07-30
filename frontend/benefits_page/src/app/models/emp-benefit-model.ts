@@ -2,12 +2,12 @@
 //
 //   import { Convert } from "./file";
 //
-//   const addedBenefit = Convert.toAddedBenefit(json);
+//   const empBenefitModel = Convert.toEmpBenefitModel(json);
 //
 // These functions will throw an error if the JSON doesn't
 // match the expected interface, even if the JSON is valid.
 
-export interface AddedBenefit {
+export interface EmpBenefitModel {
     employeeBenefitId: number;
     employeeId:        number;
     benefitId:         number;
@@ -18,12 +18,12 @@ export interface AddedBenefit {
 // Converts JSON strings to/from your types
 // and asserts the results of JSON.parse at runtime
 export class Convert {
-    public static toAddedBenefit(json: string): AddedBenefit[] {
-        return cast(JSON.parse(json), a(r("AddedBenefit")));
+    public static toEmpBenefitModel(json: string): EmpBenefitModel[] {
+        return cast(JSON.parse(json), a(r("EmpBenefitModel")));
     }
 
-    public static addedBenefitToJson(value: AddedBenefit[]): string {
-        return JSON.stringify(uncast(value, a(r("AddedBenefit"))), null, 2);
+    public static empBenefitModelToJson(value: EmpBenefitModel[]): string {
+        return JSON.stringify(uncast(value, a(r("EmpBenefitModel"))), null, 2);
     }
 }
 
@@ -180,7 +180,7 @@ function r(name: string) {
 }
 
 const typeMap: any = {
-    "AddedBenefit": o([
+    "EmpBenefitModel": o([
         { json: "employeeBenefitId", js: "employeeBenefitId", typ: 0 },
         { json: "employeeId", js: "employeeId", typ: 0 },
         { json: "benefitId", js: "benefitId", typ: 0 },

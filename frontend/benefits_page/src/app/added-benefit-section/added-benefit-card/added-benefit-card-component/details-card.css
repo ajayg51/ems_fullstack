@@ -33,3 +33,17 @@
     text-align: center;
     object-fit: cover;
 }
+
+#init-stage-no-data-img{
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#details-card-loader-div{
+    width: auto;
+    height: 30vh;
+    background-color: lime;
+}

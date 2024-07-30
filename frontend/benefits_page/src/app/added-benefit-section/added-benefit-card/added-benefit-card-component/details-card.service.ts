@@ -4,56 +4,113 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Benefit } from 'src/app/models/benefits-model';
 import { DetailsCardComponent } from './details-card.component';
 import { Employee } from 'src/app/models/employee-model';
+import { EmpBenefitModel } from 'src/app/models/emp-benefit-model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DetailsCardService {
- 
   
+  private   baseUrl = "http://localhost:8000";
 
-  // isLoading = true;
-  // isNoData = false;
-  
-  private baseUrl = "http://localhost:8000";
+  private  empBenefitApiUrl = `${this.baseUrl}/benefits/employee/`;
 
-  private empBenefitApiUrl = `${this.baseUrl}/benefits/employee/`;
+  isInitStage  = new BehaviorSubject<boolean>(true);
+  isInitStage$ = this.isInitStage.asObservable();
+
+
+  isNoData = 
+    new BehaviorSubject<boolean>(true);
   
-  constructor(private http: HttpClient) { }
+  isNoData$ = 
+    this.isNoData.asObservable();
+    
+
+
+  isBenefitCardTapped = 
+    new BehaviorSubject<boolean>(false);
+
+  isBenefitCardTapped$ = 
+    this.isBenefitCardTapped.asObservable();
+  
+  benefitData = 
+    new BehaviorSubject<Benefit[]>([]);
+
+  benefitData$ = 
+    this.benefitData.asObservable();
+
+  
+    
+  isLoading = 
+    new BehaviorSubject<boolean>(false);
+  
+  isLoading$ = 
+    this.isLoading.asObservable();
+
+  
+  
+  empData = 
+  new BehaviorSubject<Employee[]>([]);
+
+  empData$ = 
+  this.empData.asObservable();
+
+  empBenefitData = 
+  new BehaviorSubject<EmpBenefitModel[]>([]);
+
+  empBenefitData$ = 
+  this.empBenefitData.asObservable();
+
+
+  constructor(private http: HttpClient){}
   
   showBenefitData(data : Benefit) : void{
-    DetailsCardComponent.isBenefitCardTapped.next(true);
-    DetailsCardComponent.benefitData.next([data]);
+    console.log("benefit card tapped!");
+
+    this.isNoData.next(false);
+    this.isInitStage.next(false);
+
+    this.isBenefitCardTapped.next(true);
+    this.benefitData.next([data]);
   }
 
 
+  onEmpCardTap(empData : Employee): void{
+     
+    this.isLoading.next(true);
+    
+    this.isBenefitCardTapped.next(false);
 
+    this.isInitStage.next(false);
 
-  onEmpCardTap(empId : number) : void{
-    DetailsCardComponent.isLoading.next(true);
+    this.empData.next([empData]);
 
-    this.fetchEmpData(empId)
+    this.fetchEmpData(empData.employee_id)
       .subscribe(
         data => {
-          DetailsCardComponent.isLoading.next(false);
-          
-          DetailsCardComponent.empData.next([data]);
+          this.isLoading.next(false);
+          this.isNoData.next(false);
 
-          console.log("emp-benefit-data :: ", data);
+          this.empBenefitData.next([data]);
+          
+          console.log(
+            "DATA :: DetailsCardComponent : onEmpCardTap() :: ", 
+            this.empBenefitData.value[0]);
         },
         error => {
+          this.isLoading.next(false);
+          this.isNoData.next(true);
           
-          DetailsCardComponent.isLoading.next(false);
-          
-          DetailsCardComponent.isNoData.next(true);
-          console.log("onEmpCardTap() : error :: ", error);
+          console.log(
+            "ERROR :: DetailsCardComponent : onEmpCardTap() :: ", 
+            error);
         }
       );
   }
 
+
   
-  
-  fetchEmpData(empId : number) :  Observable<Employee>{
+  fetchEmpData(empId : number) :  Observable<EmpBenefitModel>{
     console.log("Employee card tapped!", empId);
 
     let params = new HttpParams();
@@ -61,7 +118,7 @@ export class DetailsCardService {
     params = params.set("empId", empId);
 
     
-    return this.http.get<Employee>(
+    return this.http.get<EmpBenefitModel>(
       this.empBenefitApiUrl,
       {params}
 

@@ -3,6 +3,7 @@ import { Employee } from 'src/app/models/employee-model';
 import { AppAssets } from 'src/utils/app_assets';
 import { EmployeesService } from '../employee-listing-component/employees.service';
 import { DetailsCardService } from 'src/app/added-benefit-section/added-benefit-card/added-benefit-card-component/details-card.service';
+import { DetailsCardComponent } from 'src/app/added-benefit-section/added-benefit-card/added-benefit-card-component/details-card.component';
 
 @Component({
   selector: 'app-employee-card',
@@ -21,9 +22,7 @@ export class EmployeeCardComponent {
 
 
   onEmpCardTap(): void{
-
     this.detailsCardService
-    .onEmpCardTap(this.empData.employee_id);
-
+    .onEmpCardTap(this.empData);
   }
 }

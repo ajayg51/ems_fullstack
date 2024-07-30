@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { EmpBenefitModel } from 'src/app/models/emp-benefit-model';
 import { Employee } from 'src/app/models/employee-model';
 
 @Component({
@@ -7,5 +8,7 @@ import { Employee } from 'src/app/models/employee-model';
   styleUrls: ['./emp-content.component.css']
 })
 export class EmpContentComponent {
-  @Input() data! : Employee;
+  @Input() empData! : Employee;
+  
+  @Input() empBenefitData! : EmpBenefitModel;
 }
