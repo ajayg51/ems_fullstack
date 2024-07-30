@@ -1,0 +1,44 @@
+<div id="add-benefit-modal">
+    <div id="add-benefit-modal-title">
+        {{data.title}}
+    </div>
+    <div id="add-benefit-modal-content">
+        {{data.content}}
+    </div>
+    <div id="add-benefit-modal-action-btns">
+        <div id="add-benefit-modal-close-btn"
+        (click)="onClose()">
+            Cancel
+        </div>
+        
+        <div id="add-benefit-modal-submit-btn"
+        (click)="onSubmit()">
+            Submit
+        </div>
+
+    </div>
+</div>
+
+<!-- <h1 mat-dialog-title>{{ data.title }}</h1>
+<div mat-dialog-content>
+  <p>{{ data.content }}</p>
+</div>
+
+<div>
+
+  <button 
+  mat-button
+  id="add-benefit-modal-close-btn"
+  (click)="onClose()">
+  Cancel
+</button>
+
+  <button mat-button 
+  id="add-benefit-modal-submit-btn"
+  (click)="onSubmit()">
+  
+  Submit
+  
+  </button>
+
+</div> -->

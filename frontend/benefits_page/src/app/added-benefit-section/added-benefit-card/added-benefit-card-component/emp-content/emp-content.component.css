@@ -21,3 +21,17 @@
     font-size: 13px;
     margin-top: 20px;
 }
+
+#add-benefit-btn{
+    width: auto;
+    margin: 20px 10%;
+    height: 20px;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    color: white;
+    padding: 5px 0;
+    border: 1px solid black;
+    border-radius: 12px;
+    background-color: navy;
+}

@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { AppAssets } from 'src/utils/app_assets';
-import { DetailsCardService } from './details-card.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Benefit } from 'src/app/models/benefits-model';
 import { Employee } from 'src/app/models/employee-model';
+import { AppAssets } from 'src/utils/app_assets';
+import { DetailsCardService } from './details-card.service';
 
 @Component({
   selector: 'app-details-card-component',
@@ -29,6 +29,10 @@ export class DetailsCardComponent {
 
   empBenefitData$! : Observable<Benefit[]>;
 
+  static empMappedBenefitData = new BehaviorSubject<Benefit[]>([]);
+  empMappedBenefitData$ = DetailsCardComponent
+    .empMappedBenefitData.asObservable();
+  
   constructor(private detailsCardService : DetailsCardService){
       
   }

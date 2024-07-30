@@ -38,11 +38,15 @@
     <div *ngIf="(isInitStage$ | async) === false">
         <div  
         *ngIf="(empData$) | async as empData else showLoaderTemplate">
-            <div *ngIf="empBenefitData$ | async as empBenefitData else showLoaderTemplate">
+            <div 
+            *ngIf="empMappedBenefitData$ | async as empBenefitData 
+            else showLoaderTemplate">
+
                 <app-emp-content 
                     [empData] = "empData[0]"
                     [empBenefitData]="empBenefitData[0]"
                 />
+
             </div>
         </div>
     </div>
@@ -56,20 +60,3 @@
         <app-app-loader/>
     </div>
 </ng-template>
-
-<!-- 
-<ng-template #checkEmpNoData>
-    <div *ngIf="isNoData$ | async else empDataFound">
-        No employee data found
-    </div>
-</ng-template>
-
-
-<ng-template #empDataFound>
-    <div *ngIf="empData$ | async as empData">
-        <div *ngIf="!(isInitStage$ | async)">
-            <app-emp-content [data] ="empData[0]"/>
-             Employee content
-        </div>
-    </div>
-</ng-template> -->

@@ -1,0 +1,54 @@
+#add-benefit-modal{
+    width: 70vw;
+    height: 50vh;
+    background: linear-gradient(to left, yellow, grey, rgb(144, 238, 144) );
+    
+}
+
+#add-benefit-modal-title{
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px;
+}
+
+#add-benefit-modal-content{
+    width: auto;
+    height: 65%;
+    border-radius: 12px;
+    border: 1px solid black;
+    margin: 0 10px;
+    /* background-color: red; */
+}
+
+#add-benefit-modal-action-btns{
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    /* background-color: peru; */
+    margin: 5px 20%;
+}
+
+#add-benefit-modal-close-btn{
+    width: 40%;
+    height: 100%;
+    padding: 5px;
+    background-color: red;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    margin-right: 10%;
+    border-radius: 12px;
+}
+
+#add-benefit-modal-submit-btn{
+    width: 40%;
+    height: auto;
+    padding: 5px;
+    border-radius: 12px;
+    cursor: pointer;
+    background-color: green;
+    display: flex;
+    justify-content: center;
+    
+}

@@ -90,19 +90,26 @@ export class DetailsCardService {
           this.isNoData.next(false);
           
           this.empData.next([empData]);
+
           this.empBenefitData.next([data]);
           
+          DetailsCardComponent
+            .empMappedBenefitData.next([data]);
+
           console.log(
             "DATA :: DetailsCardComponent : onEmpCardTap() :: ", 
             this.empBenefitData.value[0]);
+          
         },
         error => {
+
           this.isLoading.next(false);
           this.isNoData.next(true);
           
           console.log(
             "ERROR :: DetailsCardComponent : onEmpCardTap() :: ", 
             error);
+
         }
       );
   }
@@ -110,6 +117,7 @@ export class DetailsCardService {
 
   
   fetchEmpData(empId : number) :  Observable<Benefit>{
+    
     console.log("Employee card tapped!", empId);
 
     let params = new HttpParams();
