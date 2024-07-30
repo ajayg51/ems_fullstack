@@ -4,7 +4,6 @@ import { DetailsCardService } from './details-card.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Benefit } from 'src/app/models/benefits-model';
 import { Employee } from 'src/app/models/employee-model';
-import { EmpBenefitModel } from 'src/app/models/emp-benefit-model';
 
 @Component({
   selector: 'app-details-card-component',
@@ -16,7 +15,6 @@ import { EmpBenefitModel } from 'src/app/models/emp-benefit-model';
 export class DetailsCardComponent {
   noDataAssetPath : string = AppAssets.noData;
 
-
   isInitStage$! : Observable<boolean>;
 
   isNoData$! : Observable<boolean>;
@@ -25,12 +23,11 @@ export class DetailsCardComponent {
   
   benefitData$! : Observable<Benefit[]>;
 
-  
   isLoading$! : Observable<boolean>;
 
   empData$! : Observable<Employee[]>;
 
-  empBenefitData$! : Observable<EmpBenefitModel[]>;
+  empBenefitData$! : Observable<Benefit[]>;
 
   constructor(private detailsCardService : DetailsCardService){
       
@@ -55,7 +52,6 @@ export class DetailsCardComponent {
       this.empData$ =
         this.detailsCardService.empData.asObservable();
 
-        
       this.empBenefitData$ =
         this.detailsCardService.empBenefitData.asObservable();
   }

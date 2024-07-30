@@ -4,7 +4,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { Benefit } from 'src/app/models/benefits-model';
 import { DetailsCardComponent } from './details-card.component';
 import { Employee } from 'src/app/models/employee-model';
-import { EmpBenefitModel } from 'src/app/models/emp-benefit-model';
 
 @Injectable({
   providedIn: 'root'
@@ -56,7 +55,7 @@ export class DetailsCardService {
   this.empData.asObservable();
 
   empBenefitData = 
-  new BehaviorSubject<EmpBenefitModel[]>([]);
+  new BehaviorSubject<Benefit[]>([]);
 
   empBenefitData$ = 
   this.empBenefitData.asObservable();
@@ -83,14 +82,14 @@ export class DetailsCardService {
 
     this.isInitStage.next(false);
 
-    this.empData.next([empData]);
 
     this.fetchEmpData(empData.employee_id)
       .subscribe(
         data => {
           this.isLoading.next(false);
           this.isNoData.next(false);
-
+          
+          this.empData.next([empData]);
           this.empBenefitData.next([data]);
           
           console.log(
@@ -110,7 +109,7 @@ export class DetailsCardService {
 
 
   
-  fetchEmpData(empId : number) :  Observable<EmpBenefitModel>{
+  fetchEmpData(empId : number) :  Observable<Benefit>{
     console.log("Employee card tapped!", empId);
 
     let params = new HttpParams();
@@ -118,7 +117,7 @@ export class DetailsCardService {
     params = params.set("empId", empId);
 
     
-    return this.http.get<EmpBenefitModel>(
+    return this.http.get<Benefit>(
       this.empBenefitApiUrl,
       {params}
 
