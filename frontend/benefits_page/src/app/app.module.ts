@@ -18,6 +18,8 @@ import { AddBenefitModalComponent } from './utils/add-benefit-modal/add-benefit-
 import { AppLoaderComponent } from "./utils/app-loader/app-loader.component";
 import { SearchBoxComponent } from './utils/search-box/search-box.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule} from '@angular/material/select';
+import { DropdownComponent } from './dropdown/dropdown.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     BenefitCardComponent,
     BenefitContentComponent,
     EmpContentComponent,
-    AddBenefitModalComponent
+    AddBenefitModalComponent,
+    DropdownComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     HttpClientModule,
     FormsModule,
     CommonModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
