@@ -2,17 +2,21 @@
   <div id="card-header">
       Employee details
   </div>
-  <div id="title">
-      {{empData.first_name}} {{empData.last_name}}
+  <div 
+  id="title"
+  *ngIf="empData | async as empData">
+      {{empData[0].first_name}} {{empData[0].last_name}}
   </div>
-  <div id="details">
+  <div 
+  id="details"
+  *ngIf="empBenefitList | async as empBenefitList">
       <div id="benefit-name">
           Benefit  : 
-          {{empBenefitData.benefit_name}}
+          {{empBenefitList[0].benefit_name}}
       </div>
       <div id="benefit-cost">
           Benefit-cost : 
-          {{empBenefitData.beneficiary_cost}}
+          {{empBenefitList[0]}}
       </div>
   </div>
   <div 

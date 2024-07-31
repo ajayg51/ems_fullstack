@@ -29,15 +29,12 @@ export class DetailsCardComponent {
 
   empBenefitData$! : Observable<Benefit[]>;
 
-  static empMappedBenefitData = new BehaviorSubject<Benefit[]>([]);
-  empMappedBenefitData$ = DetailsCardComponent
-    .empMappedBenefitData.asObservable();
   
   constructor(private detailsCardService : DetailsCardService){
       
   }
 
-  ngOnInit():void{
+  ngOnInit(){
       this.isInitStage$ =
         this.detailsCardService.isInitStage.asObservable();
       

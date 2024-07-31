@@ -38,14 +38,9 @@
     <div *ngIf="(isInitStage$ | async) === false">
         <div  
         *ngIf="(empData$) | async as empData else showLoaderTemplate">
-            <div 
-            *ngIf="empMappedBenefitData$ | async as empBenefitData 
-            else showLoaderTemplate">
+            <div>
 
-                <app-emp-content 
-                    [empData] = "empData[0]"
-                    [empBenefitData]="empBenefitData[0]"
-                />
+                <app-emp-content/>
 
             </div>
         </div>

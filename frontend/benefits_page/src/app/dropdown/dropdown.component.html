@@ -1,11 +1,33 @@
-<div id="dropdown">
-    <mat-form-field appearance="fill">
-        <mat-label>Select an option</mat-label>
-        <mat-select (selectionChange)="onOptionSelect($event)">
+<div>
+    <div id="dropdown-emp-details">
+        {{empData[0].first_name}} {{empData[0].last_name}}
+    </div>
+
+    <mat-form-field id="benefit-dropdown-div">
+        <mat-label>Select benefit</mat-label>
+        <mat-select (selectionChange)="onBenefitSelect($event)">
             <mat-option 
-            *ngFor="let option of options"
-            value={{option}}>{{option}}
+            *ngFor="let benefit of benefits" 
+            value={{benefit}}>
+            
+                {{benefit.benefit_name}}
+            
             </mat-option>
         </mat-select>
-      </mat-form-field>
+    </mat-form-field>
+
+    <mat-form-field id="benefit-dropdown-div">
+        <mat-label>Select Emp benefit</mat-label>
+        <mat-select (selectionChange)="onBenefitSelect($event)">
+            <mat-option 
+            *ngFor="let empBenefit of empBenefits" 
+            value={{empBenefit}}>
+            
+                {{empBenefit.benefit_name}}
+            
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
 </div>

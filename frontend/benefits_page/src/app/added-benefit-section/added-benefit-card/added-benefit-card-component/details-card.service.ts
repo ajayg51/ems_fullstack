@@ -93,9 +93,6 @@ export class DetailsCardService {
 
           this.empBenefitData.next([data]);
           
-          DetailsCardComponent
-            .empMappedBenefitData.next([data]);
-
           console.log(
             "DATA :: DetailsCardComponent : onEmpCardTap() :: ", 
             this.empBenefitData.value[0]);

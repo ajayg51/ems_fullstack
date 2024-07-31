@@ -14,6 +14,7 @@ export class BenefitComponent {
 
   data : Benefit[] = [] ;
 
+  static sharedBenefitData : Benefit [] = [];
   
   constructor(
     private beneficiaryListingDataService 
@@ -33,6 +34,8 @@ export class BenefitComponent {
           
           this.data = data;
 
+          BenefitComponent.sharedBenefitData = data;
+          
         },
         error =>{
           console.log("Error :: ", error)
